@@ -1,6 +1,6 @@
 @mixin button-reset {
     appearance: none;
     border: none;
-    background-color: transparent;
     cursor: pointer;
+    outline: none;
 }
