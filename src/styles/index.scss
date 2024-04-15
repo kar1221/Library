@@ -8,17 +8,46 @@ body {
     grid-template-rows: min-content 1fr;
 
     .navbar {
+        padding: 1.25rem;
         grid-row-start: 1;
         display: flex;
         justify-content: space-around;
         align-items: center;
     }
 
-    .card-container {
+    .cards-container {
         grid-row-start: 2;
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(250px, 320px));
         grid-auto-rows: 400px;
+        gap: 20px;
+
+        @media screen and (max-width: 720px) {
+            justify-content: center;
+        }
+    }
+
+    footer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        grid-row-start: 3;
+        position: fixed;
+        bottom: 0;
+        font-family: $contentFontFamily;
+        background-color: $color-800;
+        color: $white;
+        width: 100vw;
+        padding: .5rem;
+
+        a {
+            margin-left: .375em;
+            text-decoration: none;
+            color: $color-800;
+            background-color: $color-200;
+            padding: .375em .75em;
+            border-radius: .375em;
+        }
     }
 }
 
@@ -47,7 +76,7 @@ body {
     button {
         @include utilities.button-reset;
 
-        --font-size: clamp(1rem, 0.7778rem + 1.1111vw, 1.25rem);
+        --font-size: clamp(0.875rem, 0.6528rem + 1.1111vw, 1.125rem);
         padding: 0.75em 1.75em;
         font-family: $contentFontFamily;
         color: $white;
@@ -67,7 +96,7 @@ body {
     }
 }
 
-.card-container {
+.cards-container {
     padding: 1.5rem;
 
     .add-btn {
@@ -79,6 +108,46 @@ body {
         .material-symbols-outlined {
             color: $color-400;
             font-size: 1.5rem;
+        }
+    }
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 0.75rem;
+    background-color: $color-100;
+    padding: 1.25rem;
+    box-shadow: $box-shadow;
+
+    h3 {
+        font-family: $contentFontFamily;
+        color: $color-800;
+        font-weight: 800;
+        font-size: 1.5rem;
+        text-align: center;
+    }
+
+    p {
+        text-align: center;
+        font-size: 1.25rem;
+        color: $color-600;
+        font-family: $contentFontFamily;
+    }
+    
+    .buttons-container {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        button {
+            @include utilities.button-reset;
+            font-size: 1rem;
+            font-weight: 600;
+            color: $white;
+            background-color: $color-800;
+            padding: .75em 1.75em;
         }
     }
 }
