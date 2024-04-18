@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Library App</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <script type="module" crossorigin src="/Library/assets/index-BINzC620.js"></script>
+    <link rel="stylesheet" crossorigin href="/Library/assets/index-D7nwZjw9.css">
+  </head>
+  <style>.material-symbols-outlined{font-variation-settings:"FILL" 0,"wght" 400,"GRAD" 0,"opsz" 24}</style>
+  <body>
+    <nav class="navbar">
+      <div class="logo-container">
+        <span class="material-symbols-outlined"> book </span>
+        <p>Library App</p>
+      </div>
+      <div class="utilities-container">
+        <button>Login</button>
+      </div>
+    </nav>
+    <main class="cards-container" id="card-container">
+      <button class="add-btn" id="add-btn">
+        <span class="material-symbols-outlined"> add </span>
+      </button>
+    </main>
+    <dialog id="add-book-modal" class="add-book-modal">
+      <form method="dialog" novalidate>
+        <h3>Add your book here!</h3>
+        <div class="input-row">
+          <label for="book-title">Title: </label>
+          <input
+            type="text"
+            name="title"
+            id="book-title"
+            aria-label="Title"
+            aria-required="true"
+            placeholder="Title of the book"
+            required
+          />
+        </div>
+        <div class="input-row">
+          <label for="book-author">Authors: </label>
+          <input
+            type="text"
+            name="authors"
+            id="book-author"
+            aria-label="Authors"
+            aria-required="true"
+            placeholder="Comma separated list of authors"
+            required
+          />
+        </div>
+        <div class="input-row">
+          <label for="book-pages">Pages: </label>
+          <input
+            type="number"
+            name="pages"
+            id="book-pages"
+            aria-label="Pages"
+            aria-required="true"
+            placeholder="Number of pages"
+            required
+          />
+        </div>
+        <div class="input-row checkbox">
+          <label for="book-read">Have you read this book? </label>
+          <input
+            type="checkbox"
+            name="read"
+            id="book-read"
+            aria-label="Have you read this book"
+            aria-required="true"
+            required
+          />
+        </div>
+        <div class="buttons-container">
+          <button id="submit-btn">Add Book</button>
+          <button id="cancel-btn">Cancel</button>
+        </div>
+      </form>
+    </dialog>
+    <footer>
+      Copyright @ <a href="https://github.com/kar1221">kar1221</a>
+    </footer>
+  </body>
+</html>
