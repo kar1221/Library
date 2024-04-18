@@ -1,37 +1,29 @@
-import { BookData } from "./cardFactory";
-import Card from "./cardFactory";
+import Book from "./Book";
 
-enum State {
-    add,
-    remove
-}
-
-export default class Library {
-  private library: BookData[];
-  private container: HTMLElement;
-  constructor(cardContainer: HTMLElement) {
-    this.library = [];
-    this.container = cardContainer;
+class Library {
+  Books: Book[];
+  constructor() {
+    this.Books = [];
   }
 
-  addBookToLibrary(data: BookData) {
-    this.library.push(data);
+  addBookToLibrary(newBook: Book): void {
+    if (this.isBookInLibrary(newBook)) return;
+
+    this.Books.push(newBook);
   }
 
-  private Render(newLibrary: BookData[], mode: State) {
-    let different = this.library
-      .filter((x) => !newLibrary.includes(x))
-      .concat(newLibrary.filter((x) => !this.library.includes(x)));
+  isBookInLibrary(newBook: Book): boolean {
+    return this.Books.some((book) => book.title === newBook.title);
+  }
 
-      if(mode === State.add) {
-        different.forEach(x => {
-            const card = new Card(x).createCard();
-            this.container.appendChild(card);
-        })
-      }
+  bookLookup(bookTitle: string): Book | undefined {
+    return this.Books.find((book) => book.title === bookTitle);
+  }
 
-      if (mode === State.remove) {
-        // TODO
-      }
+  removeBook(bookTitle: string): void {
+    const target = this.Books.findIndex((book) => book.title === bookTitle);
+    this.Books.splice(target, 1);
   }
 }
+
+export { Library as default };
